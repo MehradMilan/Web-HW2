@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class ProductRepository {
@@ -28,5 +29,14 @@ public class ProductRepository {
 
     public List<Product> findAllProducts(){
         return products;
+    }
+
+    public Product findProductById(String id) {
+         for (Product product : products) {
+             if (product.getId().equals(id)) {
+                 return product;
+             }
+         }
+         return null;
     }
 }
